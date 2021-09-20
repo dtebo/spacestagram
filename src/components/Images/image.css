@@ -1,0 +1,14 @@
+.photo-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.photo{
+    width: 30%;
+}
+
+.card{
+    margin: 20px;
+    width: 20%;
+}

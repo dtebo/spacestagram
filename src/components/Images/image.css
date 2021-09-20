@@ -4,11 +4,19 @@
     flex-wrap: wrap;
 }
 
-.photo{
-    width: 30%;
-}
-
 .card{
     margin: 20px;
     width: 20%;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card h1{
+    font-weight: bold;
+}
+
+img.photo{
+    width: 30%;
 }

@@ -20,7 +20,7 @@ const ImageList = (props) => {
             {images && images.map(image => {
                 return(<ImageCard 
                             key={image.url}
-                            Image={image}
+                            image={image}
                         />)
             })}
         </>

@@ -1,9 +1,17 @@
 import React from 'react'
 
+import * as MUI from '../../MaterialUI';
+
 const ImageCard = (props) => {
     return(
         <>
-            <h1>Image Card goes here...</h1>
+            <MUI.Card>
+                <MUI.CardContent>
+                    <MUI.Typography>
+                        {props.image.title}
+                    </MUI.Typography>
+                </MUI.CardContent>
+            </MUI.Card>
         </>
     );
 };

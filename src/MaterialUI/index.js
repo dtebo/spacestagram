@@ -1,4 +1,5 @@
 import {
+    Button,
     Card,
     CardContent,
     CardHeader,
@@ -7,6 +8,7 @@ import {
 } from '@material-ui/core';
 
 export {
+    Button,
     Card,
     CardContent,
     CardHeader,

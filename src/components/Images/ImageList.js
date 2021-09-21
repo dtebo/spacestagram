@@ -1,24 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 import ImageCard from './ImageCard';
+import {getImages} from '../../redux/actions';
 
 import './image.css';
 
 const ImageList = (props) => {
-    const [images, setImages] = useState([]);
-
     useEffect(() => {
-        axios.get("https://api.nasa.gov/planetary/apod?start_date=2021-01-01&end_date=2021-09-01&api_key=hujeiE0i5EMgKa1KAjMzpnaKbARkFafgwpfWsWFx")
-            .then(photos => {
-                console.log(photos);
-                setImages(photos.data);
-            })
-            .catch(err => console.error(err));
+        props.getImages();
     }, []);
 
     return(
         <div className='photo-list'>
-            {images && images.map(image => {
+            {props.images && props.images.map(image => {
                 return(<ImageCard 
                             key={image.url}
                             image={image}
@@ -28,4 +22,12 @@ const ImageList = (props) => {
     );
 };
 
-export default ImageList;
+const mapStateToProps = (state) => {
+    return { 
+        images: state.images,
+        isLoading: state.isLoading,
+        error: state.error
+    };
+};
+
+export default connect(mapStateToProps, {getImages})(ImageList);

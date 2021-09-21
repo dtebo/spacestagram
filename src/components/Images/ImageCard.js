@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import moment from 'moment';
 
@@ -7,6 +7,19 @@ import * as MUI from '../../MaterialUI';
 import EmbedVideo from '../EmbedVideo/EmbedVideo';
 
 const ImageCard = (props) => {
+    const [liked, setLiked] = useState('Like');
+
+    const toggleLike = (e) => {
+        e.preventDefault();
+
+        if(liked == 'Like'){
+            setLiked('Dislike');
+        }
+        else{
+            setLiked('Like');
+        }
+    };
+
     return(
         <>
             <MUI.Card
@@ -44,6 +57,14 @@ const ImageCard = (props) => {
                         >
                             {props.image.explanation}
                     </MUI.Typography>
+                </MUI.CardContent>
+                <MUI.CardContent>
+                    <MUI.Button
+                        variant="outlined"
+                        onClick={toggleLike}
+                    >
+                        {liked}
+                    </MUI.Button>
                 </MUI.CardContent>
             </MUI.Card>
         </>

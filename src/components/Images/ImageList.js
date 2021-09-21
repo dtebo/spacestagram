@@ -11,14 +11,17 @@ const ImageList = (props) => {
     }, []);
 
     return(
-        <div className='photo-list'>
-            {props.images && props.images.map(image => {
-                return(<ImageCard 
-                            key={image.url}
-                            image={image}
-                        />)
-            })}
-        </div>
+        <>
+            {props.isLoading ? 'Loading...' : ''}
+            <div className='photo-list'>
+                {props.images && props.images.map(image => {
+                    return(<ImageCard 
+                                key={image.url}
+                                image={image}
+                            />)
+                })}
+            </div>
+        </>
     );
 };
 

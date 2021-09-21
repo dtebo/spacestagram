@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ImageCard from './ImageCard';
 
+import './image.css';
+
 const ImageList = (props) => {
     const [images, setImages] = useState([]);
 
@@ -15,15 +17,14 @@ const ImageList = (props) => {
     }, []);
 
     return(
-        <>
-            <h1>Image list goes here...</h1>
+        <div className='photo-list'>
             {images && images.map(image => {
                 return(<ImageCard 
                             key={image.url}
-                            Image={image}
+                            image={image}
                         />)
             })}
-        </>
+        </div>
     );
 };
 
